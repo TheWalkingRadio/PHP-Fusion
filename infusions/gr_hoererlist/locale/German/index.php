@@ -1,5 +1,5 @@
 <?php
-$locale['grhl100'] = "Gr_H&ouml;rerlist";
+$locale['grhl100'] = "Gr H&ouml;rerlist";
 $locale['grhl101'] = "Eine &Uuml;bersicht über die Stammh&ouml;rer";
 $locale['grhl102'] = "H&ouml;rerlist";
 

@@ -32,20 +32,10 @@ if (file_exists(INFUSIONS."gr_hoererlist/locale/".LOCALESET."index.php")) {
 	include INFUSIONS."gr_hoererlist/locale/German/index.php";
 }
 
-/*---------------------------------------------------+
-| Einsellungen																			 |
-+----------------------------------------------------+
-| Freischalten																			 |
-| 0 = Freischalten Deaktivieren											 |
-| 1 = Freischalten Aktivieren												 |
-+---------------------------------------------------*/
-$freischalten = 1;
-/*--------------------------------------------------*/
-
 if (iMEMBER && IsSeT($_GET['hoerer']) && $_GET['hoerer'] == "ja") {
 if (dbrows(dbquery("SELECT * FROM ".DB_GR_HOERERLIST." WHERE hl_user_id='".$userdata["user_id"]."'"))) { redirect(FUSION_SELF."?error=1"); }
 if (IsSeT($_POST['ja'])) {
-	$result = dbquery("INSERT INTO ".DB_GR_HOERERLIST." (hl_user_id, hl_free) VALUES ('".$userdata["user_id"]."', '".$freischalten."')"); 
+	$result = dbquery("INSERT INTO ".DB_GR_HOERERLIST." (hl_user_id, hl_free) VALUES ('".$userdata["user_id"]."', '0')"); 
 	$result2 = dbquery("INSERT INTO ".DB_MESSAGES." (message_to, message_from, message_subject, message_message, message_smileys, message_read, message_datestamp, message_folder) VALUES ('1', '".$userdata["user_id"]."', '".$locale['grhl123']."', '".$locale['grhl124']."', 'n', '0', '".time()."', '0')"); 
 	redirect(FUSION_SELF."?thanks=1");
 } elseif (IsSeT($_POST['nein'])) {
