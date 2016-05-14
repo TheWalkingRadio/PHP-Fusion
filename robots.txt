@@ -1,5 +1,14 @@
 User-agent: *
 Disallow: /administration/
+Disallow: /ftp_upload/
+Disallow: /images/
+Disallow: /infusions/
+Disallow: /music/
 Disallow: /locale/
+Disallow: /logs/
 Disallow: /themes/
+Disallow: /config.php
 Disallow: /print.php
+Disallow: /setup.php
+Disallow: /stream.php
+Disallow: /*?
