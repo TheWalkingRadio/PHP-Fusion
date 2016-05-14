@@ -102,9 +102,9 @@ elseif ($lastseen < 1800) $lastseen = "<img src='".INFUSIONS."online_users_panel
 elseif ($lastseen < 3600) $lastseen = "<img src='".INFUSIONS."online_users_panel/images/60min.png' border='0' alt='60Min' />";
 else $lastseen = "<img src='".INFUSIONS."online_users_panel/images/offline.png' border='0' alt='Offline' />";
 
-if ($data['user_level'] == 103) { $level = $locale['user3']; $color = $online['online_superadmincolor']; }
-if ($data['user_level'] == 102) { $level = $locale['user2']; $color = $online['online_admincolor']; }
-if ($data['user_level'] == 101) { $level = $locale['user1']; $color = $online['online_usercolor']; }
+if ($data['user_level'] == -103) { $level = $locale['user3']; $color = $online['online_superadmincolor']; }
+if ($data['user_level'] == -102) { $level = $locale['user2']; $color = $online['online_admincolor']; }
+if ($data['user_level'] == -101) { $level = $locale['user1']; $color = $online['online_usercolor']; }
 
 echo "<tr>\n<td class='side-small' align='left'>".THEME_BULLET." <a href='".BASEDIR."profile.php?lookup=".$data['user_id']."' title='".trimlink($data['user_name'],30)." [".$level."] - Dabei seit: ".showdate("longdate", $data['user_joined'])." - Zuletzt Online: ".showdate("longdate", $data['user_lastvisit'])."' class='side' style='color: #".$color."'>";
 echo trimlink($data['user_name'],13)."</a></td><td class='side-small' align='right'>".$lastseen."</td></tr>";
