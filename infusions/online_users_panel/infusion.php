@@ -33,33 +33,36 @@ $inf_developer = "ptown67";
 $inf_email = "info@ptown67.de";
 $inf_weburl = "http://www.ptown67.de";
 $inf_folder = "online_users_panel";
+$inf_image = "members.png";
 
 $inf_newtable[1] = DB_ONLINE_SETTINGS." (
-online_superadmincolor VARCHAR(6) NOT NULL,
-online_admincolor VARCHAR(6) NOT NULL,
-online_modcolor VARCHAR(6) NOT NULL,
-online_usercolor VARCHAR(6) NOT NULL,
+online_superadmincolor VARCHAR(6) NOT NULL DEFAULT 'FF0000',
+online_admincolor VARCHAR(6) NOT NULL DEFAULT 'FF0000',
+online_modcolor VARCHAR(6) NOT NULL DEFAULT 'FF0000',
+online_usercolor VARCHAR(6) NOT NULL DEFAULT 'FFFFFF',
 
-online_showguests INT(1) UNSIGNED NOT NULL,
-online_showmembers INT(1) UNSIGNED NOT NULL,
-online_showmembersnum INT(2) UNSIGNED NOT NULL,
-online_showmemberstime INT(10) UNSIGNED NOT NULL,
-online_showbots INT(1) UNSIGNED NOT NULL,
-online_showbotstime INT(10) UNSIGNED NOT NULL,
-online_showallmembers INT(1) UNSIGNED NOT NULL,
-online_shownewmember INT(1) UNSIGNED NOT NULL,
+online_showguests INT(1) UNSIGNED NOT NULL DEFAULT '1',
+online_showmembers INT(1) UNSIGNED NOT NULL DEFAULT '1',
+online_showmembersnum INT(2) UNSIGNED NOT NULL DEFAULT '1',
+online_showmemberstime INT(10) UNSIGNED NOT NULL DEFAULT '1',
+online_showbots INT(1) UNSIGNED NOT NULL DEFAULT '0',
+online_showbotstime INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_showallmembers INT(1) UNSIGNED NOT NULL DEFAULT '0',
+online_shownewmember INT(1) UNSIGNED NOT NULL DEFAULT '1',
 
-online_alexa INT(10) UNSIGNED NOT NULL,
-online_exalead INT(10) UNSIGNED NOT NULL,
-online_excite INT(10) UNSIGNED NOT NULL,
-online_fast INT(10) UNSIGNED NOT NULL,
-online_fireball INT(10) UNSIGNED NOT NULL,
-online_google INT(10) UNSIGNED NOT NULL,
-online_lycos INT(10) UNSIGNED NOT NULL,
-online_msn INT(10) UNSIGNED NOT NULL,
-online_yahoo INT(10) UNSIGNED NOT NULL
-) TYPE=MyISAM;";
+online_alexa INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_exalead INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_excite INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_fast INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_fireball INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_google INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_lycos INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_msn INT(10) UNSIGNED NOT NULL DEFAULT '0',
+online_yahoo INT(10) UNSIGNED NOT NULL DEFAULT '0',
+PRIMARY KEY (online_superadmincolor)
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8 COLLATE=utf8_unicode_ci";
 
+$inf_droptable[1] = DB_ONLINE_SETTINGS;
 $inf_insertdbrow[1] = DB_ONLINE_SETTINGS." (
 online_superadmincolor,
 online_admincolor,
@@ -83,10 +86,10 @@ online_lycos,
 online_msn,
 online_yahoo
 ) VALUES(
-'003366',
-'003366',
-'003366',
-'555555',
+'FF0000',
+'FF0000',
+'FF0000',
+'FFFFFF',
 '1',
 '1',
 '10',
@@ -104,9 +107,6 @@ online_yahoo
 '0',
 '0',
 '0')";
-
-$inf_droptable[1] = DB_ONLINE_SETTINGS;
-
 $inf_adminpanel[1] = array(
 	"title" => $locale['aou100'],
 	"image" => "members.gif",

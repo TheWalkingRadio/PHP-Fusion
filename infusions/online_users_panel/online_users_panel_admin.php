@@ -28,9 +28,6 @@ if (file_exists(INFUSIONS."online_users_panel/locale/".$settings['locale'].".php
 
 if (!checkrights("AOU") || !defined("iAUTH") || $_GET['aid'] != iAUTH) { redirect("../../index.php"); }
 
-$result = dbquery("SELECT * FROM ".DB_ONLINE_SETTINGS);
-$data = dbarray($result);
-
 if(isset($_GET['status'])) {
 if($_GET['status'] == "ok") echo "<div class='admin-message'>".$locale['aou210']."</div>";
 if($_GET['status'] == "reset") echo "<div class='admin-message'>".$locale['aou211']."</div>";
@@ -64,33 +61,8 @@ online_shownewmember = '".$_POST['shownewmember']."'
 redirect (FUSION_SELF."?aid=".$_GET['aid']."&status=ok");
 }
 
-if(isset($_POST['reset'])) {
-$result = dbquery("UPDATE ".DB_ONLINE_SETTINGS." SET 
-online_superadmincolor = '003366', 
-online_admincolor = '003366', 
-online_modcolor = '003366', 
-online_usercolor = '555555', 
-online_showguests = '1', 
-online_showmembers = '1', 
-online_showmembersnum = '10', 
-online_showmemberstime = '300', 
-online_showbots = '1', 
-online_showbotstime = '300', 
-online_showallmembers = '1', 
-online_shownewmember = '1', 
-online_alexa = '0', 
-online_astalavista = '0', 
-online_exalead = '0', 
-online_excite = '0', 
-online_fast = '0', 
-online_fireball = '0', 
-online_google = '0', 
-online_lycos = '0', 
-online_msn = '0', 
-online_yahoo = '0'
-");
-redirect (FUSION_SELF."?aid=".$_GET['aid']."&status=reset");
-}
+$result = dbquery("SELECT * FROM ".DB_ONLINE_SETTINGS);
+$data = dbarray($result);
 
 opentable($locale['aou200']);
 
@@ -141,13 +113,13 @@ echo "#<input type='text' name='admincolor' size='6' class='textbox' value='".$d
 echo "</td>";
 echo "</tr>";
 
-/*// Moderatorfarbe
+// Moderatorfarbe
 echo "<tr>";
 echo "<td class='tbl1' height='25px' width='1%' style='white-space:nowrap'>".$locale['aou214']."</td>";
 echo "<td class='tbl1' align='left'>";
 echo "#<input type='text' name='modcolor' size='6' class='textbox' value='".$data['online_modcolor']."'/>";
 echo "</td>";
-echo "</tr>";*/
+echo "</tr>";
 
 // Userfarbe
 echo "<tr>";
