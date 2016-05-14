@@ -171,6 +171,6 @@ echo "<div align='right'><a href='http://www.granade.eu/scripte/sendeplan.html' 
 closetable();
 
 echo "</body>\n</html>\n";
-mysql_close();
+@mysql_close();
 ob_end_flush();
 ?>
