@@ -162,7 +162,6 @@ echo "</tr>";
 // Reset / Übernehmen
 echo "<tr>";
 echo "<td class='tbl1' colspan='2' align='right'>";
-echo "<input type='submit' name='reset' class='button' value='".$locale['aou203']."' onClick=\"return confirm('".$locale['aou204']."')\">&nbsp;";
 echo "<input type='submit' name='update' class='button' value='".$locale['aou202']."'></td>";
 echo "</tr>";
 
